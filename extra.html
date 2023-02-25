@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" defer="true"></script>
+    <style>
+        /* body{
+            overflow: hidden;
+            display: ;
+        } */
+        .hidden {
+            display: none;
+        }
+        .button_style{
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            display: inline-block;
+            /* width: 120px; */
+            margin: 2px;
+        }
+        .cross_button{
+            border: 0px;
+            position: relative;
+            background-color: transparent;
+            top: -8px;
+            left: 3px;
+        }
+    </style>
+</head>
+<body >
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark px-5 " >
+        <a href="" class="navbar-brand text-info">JSPIDERS</a>
+        <div class="collapose navbar-collapose">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Services</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="P-5 mt-5">
+        <!-- <div class="container">
+            <div class="row p-3">
+                <div class="col-12 text-center">
+                    <button id="create" class="btn btn-outline-info btn-md btn-dark rounded-5 py-3 w-50">CREATE</button>
+                </div> 
+                </div>
+        </div> -->
+       
+        <form id="theform" class="container  p-5  border border-1  border-secondary rounded-5 ">
+            <div class="row p-2">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><label for="name" class="py-2">NAME <span id="studentNameError" class="text-danger">*</span></label>
+                    <input type="text" name="studentName" class="form-control " id="name" placeholder="">
+                </div>
+                <div class="col-md-5"><label for="email" class="py-2">EMAIL <span id="emailError" class="text-danger">*</span></label>
+                    <input name="email" type="text" class="form-control " id="email" placeholder=""></div>
+                <div class="col-md-1"></div>
+              </div>
+              <div class="row p-2">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><label for="phone" class="py-2">NUMBER<span id="phoneError" class="text-danger">*</span></label>
+                    <input type="tel" maxlength="10" name="phone" class="form-control " id="phone" placeholder="">
+                </div>
+                <div class="col-md-5">
+                    <div class="row p-2">
+                        <div class="col-md-3"><label for="inputPassword4" class="py-2">GENDER<span id="genderError" class="text-danger">*</span></label>
+                            <div>
+                                <input type="radio" class="form-input-check" id="male" name="gender" value="Male"> <label for="male">MALE</label>
+                            </div></div>
+                        <div class="col-md-3"><label for="inputPassword4" style="visibility:hidden" class="py-2">GENDER </label>
+                            <div>
+                                <input type="radio" class="form-input-check " id="female" name="gender" value="Female"> <label for="female">FEMALE</label>
+                            </div>
+                        </div>
+                      </div>
+              </div>
+              <div class="col-md-1"></div>
+              </div>
+              <div class="row p-2">
+                <div class="col-md-1"></div>
+                <div class="col-md-5"><label for="course" class="py-2">COURSE<span id="courseError" class="text-danger">*</span></label>
+                    <select name="course" class="form-control " id="course">
+                        <option value="">SELECT COURSE</option>
+                        <option value="MERN">MERN</option>
+                        <option value="PYTHON">PYTHON</option>
+                        <option value="JAVA">JAVA</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label for="rating" class="py-2">RATING<span id="ratingError" class="text-danger">*</span></label>
+                    <select name="rating" class="form-control " id="rating">
+                        <option value="">SELECT RATING</option>
+                        <option value="P1*">P1*</option>
+                        <option value="P1">P1</option>
+                        <option value="P2">P2</option>
+                        <option value="P3">P3</option>
+                    </select>
+                </div>
+                <div class="col-md-1"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-1"></div>
+
+                <div class="col-md-5">
+                    <label class="py-2">Select Skills<span class="text-danger">*</span></label>
+                    <select id="skillList" name="skills" class="form-control " >
+                        <option value="">SELECT ...</option>
+                    </select>
+                    <div id="allskills" class="border mt-2 p-2 rounded border-3"></div>
+                </div>
+              </div>
+              <div class="col-md-12 p-3">
+                <div class=" text-center">
+                    <button id="submit" class="btn  btn-primary rounded py-3 w-25">SUBMIT</button>
+                </div> 
+                </div>
+        </form>
+    </section>
+    <section>
+        <div class="container mx-5 my-3 row  py-2">
+            <div class="col-6">
+                <div class="row">
+                <div class="col-10"><input id="input" type="text" placeholder="Search " class="form-control "></div>
+                <div class="col-2"><button id="search" class="btn btn-md btn-primary rounded">SEARCH</button></div>
+                </div>
+            </div>
+            <div class="col-6 text-end">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle rounded" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      FILTER
+                    </button>
+                    <ul class="dropdown-menu p-3 bg-info" id="btn-collection">
+                    <h6 class="p-2 text-center">GENDER</h6>
+                      <li class="text-center">
+                        <button  id="male" class="btn btn-dark px-2 text-info">Male</button>
+                        <button id="female"class="btn btn-dark px-2 text-info">Female</button>
+                      </li>
+                      <h6 class="p-2 text-center">COURSE</h6>
+                      <li class="text-center">
+                        <button id="mern" class="btn btn-dark px-2 py-2 text-info">MERN</button>
+                        <button id="java" class="btn btn-dark px-2 py-2 text-info">JAVA</button>
+                        <button id="python" class="btn btn-dark px-2 py-2 text-info">PYTHON</button>
+                      </li>
+                      <h6 class="p-2 text-center">RATINGS</h6>
+                      <li class="text-center">
+                        <button  id="p" class="btn btn-dark px-2 text-info">P1*</button>
+                        <button  id="p1" class="btn btn-dark px-2 text-info">P1</button>
+                        <button  id="p2" class="btn btn-dark px-2 text-info">P2</button>
+                        <button  id="p3" class="btn btn-dark px-2 text-info">P3</button>
+                      </li>
+
+                      <li class="text-center">
+                        <button id="remove" class="btn btn-dark px-2 text-info my-3"><h6 class="text-center">REMOVE FILTER</h6></button>
+                      </li>
+                    </ul>
+                  </div> 
+            </div>
+        </div>
+    </section>
+    <section>
+        <table class="table my-4 table-hover table-bordered table-striped text-center">
+            <thead class="">
+                <tr>
+                    <th>SNo</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Gmail</th>
+                    <th>Number</th>
+                    <th>Course</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        
+    </section>
+    <script>
+        const skillList = ["mongoDB","expressJS","node JS","React JS","JavaScript","Angular","java","python","HTML5","CSS3","c","C++","Jquery","redux","Next Js","Nest JS","Remix","D3.js","THREE.js","Chart.js","SQL","MySQL","PLSQL","OSQL","redis","Mongoose","Lodash","Jest"]; 
+        (function (arr) {
+            let selectBox = document.getElementById("skillList");
+           arr.forEach((skill,index) => {
+                const option = document.createElement('option');
+                option.innerText = skill;
+                option.value = skill;
+                selectBox.appendChild(option);
+           })
+        })(skillList);
+       
+        let arr=[
+            {
+                SNo:01,
+                Name:"Arsh",
+                Gender:"Male",
+                Email:"arsh@gmail.com",
+                Number:9047552424,
+                Course:"MERN",
+                Rating:"p1"
+            },
+            {
+                SNo:02,
+                Name:"Rajni",
+                Gender:"Female",
+                Email:"rajni@gmail.com",
+                Number:9874622862,
+                Course:"JAVA",
+                Rating:"p1*"
+            },
+            {
+                SNo:03,
+                Name:"Sanjana",
+                Gender:"Female",
+                Email:"sanjana@gmail.com",
+                Number:9827646381,
+                Course:"MERN",
+                Rating:"p1"
+            },
+            {
+                SNo:04,
+                Name:"Sagar",
+                Gender:"Male",
+                Email:"sagar@gmail.com",
+                Number:8967482518,
+                Course:"MERN",
+                Rating:"p1"
+            },
+            {
+                SNo:05,
+                Name:"Akilesh",
+                Gender:"Male",
+                Email:"akilesh@gmail.com",
+                Number:7287619369,
+                Course:"PYTHON",
+                Rating:"p1"
+            },
+            {
+                SNo:06,
+                Name:"Roshan",
+                Gender:"Male",
+                Email:"roshan@gmail.com",
+                Number:7563917660,
+                Course:"PYTHON",
+                Rating:"p1"
+            },
+
+            {
+                SNo:07,
+                Name:"Sumit",
+                Gender:"Male",
+                Email:"sumit@gmail.com",
+                Number:9078976752,
+                Course:"MERN",
+                Rating:"p1"
+            },
+            {
+                SNo:08,
+                Name:"Manoj",
+                Gender:"Male",
+                Email:"Manoj@gmail.com",
+                Number:8732657564,
+                Course:"JAVA",
+                Rating:"p1"
+            },
+            {
+                SNo:09,
+                Name:"GopalK",
+                Gender:"Male",
+                Email:"qwerty@gmail.com",
+                Number:9876543210,
+                Course:"MERN",
+                Rating:"p1"
+            },
+            {
+                SNo:10,
+                Name:"asdfgh",
+                Gender:"Male",
+                Email:"asdfgh@gmail.com",
+                Number:9988776655,
+                Course:"JAVA",
+                Rating:"p2"
+            },
+            {
+                SNo:11,
+                Name:"zxcvbn",
+                Gender:"Male",
+                Email:"azxcvb@gmail.com",
+                Number:9988446633,
+                Course:"MERN",
+                Rating:"p3"
+            },
+            {
+                SNo:12,
+                Name:"poiuy",
+                Gender:"Female",
+                Email:"poiuy@gmail.com",
+                Number:9102834567,
+                Course:"PYTHON",
+                Rating:"p2"
+            },
+            {
+                SNo:13,
+                Name:"lkjhg",
+                Gender:"Male",
+                Email:"lkjhg@gmail.com",
+                Number:9078563412,
+                Course:"JAVA",
+                Rating:"p3"
+            },
+            {
+                SNo:14,
+                Name:"tgbnhy",
+                Gender:"Female",
+                Email:"tgbnhy@gmail.com",
+                Number:9865784410,
+                Course:"JAVA",
+                Rating:"p2"
+            },
+            {
+                SNo:15,
+                Name:"qazxsw",
+                Gender:"Female",
+                Email:"qazxsw@gmail.com",
+                Number:7658932144,
+                Course:"JAVA",
+                Rating:"p3"
+            }
+            
+             
+        ]
+        let tbody = document.querySelector('tbody');
+        let INITIAL_STUDENT = {
+            SNo : "",
+            Name : "",
+            Gender : "",
+            Email : "",
+            Number : "",
+            Course : "",
+            Rating : ""
+        }
+        function createOneRow(student) {
+            const tr = document.createElement("tr");
+                for(const key in INITIAL_STUDENT) {
+                    const td = document.createElement("td");
+                    td.innerText = student[key];
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr)
+        }
+        function createRows (students) {
+            tbody.innerHTML="";
+            for(let i = 0 ; i < arr.length ; i++) {
+                createOneRow(students[i])
+            }
+        }
+        createRows(arr);
+
+        // let male = document.getElementById("male")
+
+        // male.addEventListener("click" , ()=>{
+        //     let Newarr = arr.filter((item) => item.Gender ==="Male")
+        //     createRows(Newarr)
+        // })
+
+        // let female = document.getElementById("female")
+
+        // female.addEventListener("click" , ()=>{
+        //     let Newarr = arr.filter((item) => item.Gender ==="Female")
+        //     createRows(Newarr)
+        // })
+
+        // let mern = document.getElementById("mern")
+
+        // mern.addEventListener("click" , ()=>{
+        //     let Newarr = arr.filter((item) => item.Course ==="MERN")
+        //     createRows(Newarr)
+        // })
+
+        // let java = document.getElementById("java")
+
+        // java.addEventListener("click" , ()=>{
+        //     let Newarr = arr.filter((item) => item.Course ==="JAVA")
+        //     createRows(Newarr)
+        // })
+
+        // let python = document.getElementById("python")
+
+        // python.addEventListener("click" , ()=>{
+        //     let Newarr = arr.filter((item) => item.Course ==="PYTHON")
+        //     createRows(Newarr)
+        // })
+
+        // let p = document.getElementById("p")
+
+        // p.addEventListener("click" , ()=>{
+        //     let Newarr = arr.filter((item) => item.Course ==="P*")
+        //     createRows(Newarr)
+        // })
+        // let p1 = document.getElementById("p1")
+
+        // p.addEventListener("click" , ()=>{
+        //     let Newarr = arr.filter((item) => item.Course ==="P1")
+        //     createRows(Newarr)
+        // })
+        // let p2 = document.getElementById("p2")
+
+        // p.addEventListener("click" , ()=>{
+        //     let Newarr = arr.filter((item) => item.Course ==="P2")
+        //     createRows(Newarr)
+        // })
+        // let p3 = document.getElementById("p3")
+
+        // p.addEventListener("click" , ()=>{
+        //     let Newarr = arr.filter((item) => item.Course ==="P3")
+        //     createRows(Newarr)
+        // })
+
+        // let remove = document.getElementById("remove")
+
+        // remove.addEventListener("click" , ()=>{
+        //     createRows(arr)
+        // })
+
+        
+
+        let btncont = document.getElementById("btn-collection");
+        btncont.addEventListener("click" , ({target})=>{
+            // console.log(event.target.innerText);
+           if(target.classList.contains("btn"))
+           {
+            let text = target.innerText
+            console.log(event);
+            let newArr = (text === "REMOVE FILTER") ? arr : arr.filter((item) => item.Rating === text.toLowerCase() || item.Gender === text || item.Course === text )
+
+            createRows(newArr)
+           }
+        })
+
+        let search = document.getElementById("search")
+        let input = document.getElementById("input")
+        search.addEventListener("click" , ()=>{
+            // console.log(input.value)
+            let text = input.value;
+            let newarr = arr.filter((item) => item.Name.toLowerCase().startsWith(text.toLowerCase()) || item.Email.startsWith(text) || String(item.Number).startsWith(text))
+
+            createRows(newarr)
+        })
+
+        // let btn = document.getElementById("create");
+        // let container = document.querySelector("#theform")
+        // btn.addEventListener("click", (event) => {
+        //     if (/*btn.innerText === "SHOW"*/ container.classList.contains("hidden")) {
+        //         container.classList.remove("hidden")
+        //         btn.textContent = "CLOSE"
+        //     }
+        //     else {
+        //         container.classList.add("hidden")
+        //         btn.textContent = "CREATE"
+        //     }
+        // })
+
+
+        const form  = document.getElementById("theform");
+        
+        form.addEventListener('submit',(event) => {
+            event.preventDefault();
+            // console.log("submit");
+            const student = {
+                Name : form.studentName.value,
+                SNo : arr.length + 1,
+                Email:form.email.value,
+                Number:Number(form.phone.value),
+                Course : form.course.value,
+                Rating : form.rating.value,
+                Gender : form.gender.value
+            }
+            // arr.push(student);
+            // arr[arr.length] = student;
+            arr = [...arr,student];
+            createOneRow(student);
+        })
+        function validateName(name) {
+            let charCode = name.charCodeAt(0); 
+            if(! name.match(/^[A-Z]/)) return "* name should start with upper case";
+            else if (name.match(/[@#$%^&*()?><+=/|\,.;:''""]/)) return "given name is invalid";
+            else if (name.length < 5) return "* name should contain 5 chartors";
+            else return "";
+        }
+        function validateEmail(email) {
+            if(! email.match(/@/)) return "@ in missing";
+            else if(! email.match(/.com$/)) return "email shuold ends with .com";
+            else return ""
+        }
+        function validateNumber(number) {
+            if( number.match(/[a-z]|[A-Z]/)) return "*ender number only";
+            else if (number.match(/[@#$%^&*()?><+=/|\,.;:''""]/)) return "*given number is invalid";
+            else if(! number.match(/^[6-9]/)) return "*number start with 6-9";
+            else if(number.length<10) return "*phone number should be 10 digit";
+            else return ""
+        }
+        function validateGenger(gender) {
+            // if( ! gender.match(/[a-z]|[A-Z]/)) return "*Select Gender";
+            // else return ""
+        }
+        
+        form.addEventListener('input',({target : {name,value}}) => {
+            switch(name) {
+                case "studentName" :
+                    displayError(name + "Error", validateName(value))
+                    break;
+                case "email" :
+                    displayError(name + "Error" ,validateEmail(value));
+                    break;
+                case "phone" :
+                    displayError(name + "Error" ,validateNumber(value));
+                    break;
+                case "gender" :
+                    displayError(name + "Error" ,validateGender(value));
+                    break;
+                default : 
+                    break;
+            }
+        })
+        function displayError(id,msg) {
+            document.getElementById(id).innerText = msg;
+        }
+
+
+        
+
+        form.skills.addEventListener('input',(event) => {
+            
+            let skills_div = document.getElementById('allskills');
+            let button_skills = document.createElement('button');
+            let div_sikll= document.createElement('div')
+            div_sikll.innerText= form.skills.value
+            div_sikll.classList.add('button_style')
+            button_skills.innerText='x'
+            button_skills.classList.add('cross_button')
+            skills_div.appendChild(div_sikll)
+            div_sikll.appendChild(button_skills)
+    
+        })
+       
+
+        
+    </script>
+</body>
+</html>

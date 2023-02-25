@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let string = prompt("Enter string ")
+        let char = prompt("enter char")
+        let count =0;
+        let temp= " "
+
+
+        function countcharacter( string,char){
+                for(let index=0; index<string.length; index++){
+                if (string[index]==char)count++
+            }
+            console.log(char + " = " + count + "\n\n\n")
+            
+        }
+
+        function characterlength(string){
+                for(let index=0; index<string.length;  index++){
+                    count=0
+                    let flag = true
+                    for (let index2=index; index2<string.length; index2++){
+                        if(string[index]===string[index2])count++;
+                    }
+                    for(let i=0 ;i<=temp.length; i++){
+                        if(string[index] == temp[i])flag = false;
+                    }
+                    if (flag){
+                        console.log(string[index] + "=" + count); 
+                            temp += string[index];
+                    }
+            }
+        }
+        countcharacter( string,char);
+        characterlength(string);
+    </script>
+</body>
+</html>

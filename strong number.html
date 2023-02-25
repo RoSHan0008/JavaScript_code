@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Script>
+        let num1 =+ prompt("enter min range ")
+        let num2 =+ prompt("Enter max range ")
+        for (let j=num1;j<=num2;j++){
+            let tempJ=j
+            let sum=0
+            while(tempJ>0){
+            let sumtemp =1
+            let temp= tempJ% 10 ;
+                for ( i =1 ; i <= temp;i++){
+                    sumtemp = i * sumtemp;
+                }
+                sum += sumtemp;            
+                tempJ = Math.trunc(tempJ / 10 )
+            }  
+            if (sum==j)console.log(sum);
+            }
+
+    </Script>
+</body>
+</html>

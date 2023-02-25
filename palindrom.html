@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<Script>
+    let num=+prompt("enter number")
+    let newnum=num;
+    let rev=0;
+    while (num>0){
+       let temp= num%10;
+        rev = rev*10+temp;
+        num = Math.trunc(num/10);
+    }
+    console.log(rev);
+    if(newnum==rev)console.log("Number is an Pelindrome")
+    else{
+        console.log("Number is not an Pelindrome");
+    }
+       
+
+</Script>
+<body>
+    
+</body>
+</html>

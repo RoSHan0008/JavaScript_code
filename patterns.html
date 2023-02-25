@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let num=+ prompt("Enter number")
+        // patterns="";
+        // for (let i=num; i>0 ;i--){
+        //     for (let j = i ;j>0;j--){
+        //         patterns+= " *"
+        //     }
+        //     patterns += "\n"
+        // }
+        // console.log(patterns)
+        // patterns ="";
+        // for(let i=1 ; i <=num ;i++){
+        //     for (let j=1; j<=num;j++){
+        //         patterns += (j>=i)? "*":" " 
+        //     }
+        //     patterns+= " \n"
+        // }
+        // console.log(patterns)
+        // 
+        // for(let i=1;i<=num;i++){
+        //     for(let j=1;j<=num;j++){
+        //         patterns += (j<=num-i)? " ": "*"
+        //     }
+        //     for (let j=1;j<i;j++){
+        //         patterns += "*"
+
+        //     }
+        //     patterns += "\n"
+        // }
+        // patterns ="";
+        // for(let row=num;row>0;row--){
+        //     for(let col=1;col<num+row;col++){
+        //         patterns += (col<num-row)? "*": " "
+        //     }
+        //     patterns += "\n"
+
+        // }
+    //     num=5
+    //      patterns ="";
+    //     for (let row = 1 ; row<=num;row++){
+    //         for (let col =1; col <=num+row-1 ;col ++){
+    //             patterns+= (row == num || col == (num-row)+1 ||  col== (num+row)-1 )? " *": "  "
+    //         }
+    //         patterns += "\n"
+    //     }
+    //   console.log(patterns);
+    //   for (let row = 1 ; row<=num;row++){
+    //         for (let col =1; col <=row;col ++){
+    //             patterns+= (row == col || row==2 ) ? "1": "0 "
+    //         }
+    //         patterns += "\n"
+    //     }
+    //   console.log(patterns);
+    //   for (let row = 1; row<=num;row++){
+    //         for (let col =0; col <=num-row;col ++){
+    //             patterns+= row
+    //         }
+    //         patterns += "\n"
+    //     }
+    //   console.log(patterns);
+    // num=5
+    //      patterns ="";
+    //      count =0;
+    //     for (let row = 1 ; row<=num;row++){
+    //         // let colcond = (row <= num )? row : (2*num) -row;    
+    //         for (let col =1; col <=5 ;col ++){
+    //             count ++
+    //             patterns+= count + " "
+    //         }
+    //         patterns += "\n"
+    //     }
+    //     console.log(patterns)
+    //     num=5
+    //      patterns ="";
+    //      count =0;
+    //     for (let row = 1 ; row<=num;row++){
+    //         // let colcond = (row <= num )? row : (2*num) -row;    
+    //         count ++
+    //         for (let col =1; col <=5 ;col ++){
+                
+    //             patterns+= (col <= row && row<=col  || row <=col && col <=row )? count: ""
+    //         }
+    //         patterns += "\n"
+    //     }
+    // num=5
+        //  patterns ="";
+    //     for (let row = 1 ; row<=num;row++){
+    //         for (let col =1; col <=num+row-1 ;col ++){
+    //             patterns+= (row == num || col == (num-row)+1 ||  col== (num+row)-1 )? " *": "  "
+    //         }
+    //         patterns += "\n"
+    //     }
+    //     console.log(patterns)
+        // num =5 
+    //     for(let row =1 ; row<=num ; row++ ){
+    //         let value =row
+    //         for (let col =1 ; col<= num ; col++){
+                
+
+    //             patterns += (col < row ) ? row + " ":col + " "; 
+    //         }
+    //         patterns += "\n"
+    //     }
+    //    patterns += "\n";
+        
+    //     num =5 
+    //     for(let row =1 ; row<=num ; row++ ){
+    //         let value =1
+    //         for (let col =1 ; col<= num ; col++){
+    //             patterns += (col < row ) ? row-col + 1 +" ":col-row+1 + " "; 
+    //         }
+    //         patterns += "\n"
+    //     }
+    //     console.log(patterns);
+
+        // console.log(patterns);
+    //     num=3;
+    //    let  pattern=""
+    //     for(let row=1; row<2*num ;row++){
+    //         for ( let col=1 ; col<2*num ; col ++ ){
+    //             pattern+= Math.max(Math.max((num-row)+1, (num-col)+1), Math.max((row -num)+1),((col-num)+1))
+    //         }
+    //         pattern+= "\n"
+    //     }
+    //     console.log(pattern)
+        let num =5
+        patterns=""
+        let char=65 
+        let count=1;
+        for(let row =1 ; row<=num ; row++ ){
+            for (let col =1 ; col<= row; col++){
+                patterns += (count%2)? String.fromCharCode(char++)+ " ": String.fromCharCode(32+char++)+ " "
+                count++
+            }
+            patterns += "\n"
+        }
+        console.log(patterns)
+        num = prompt("enter number")
+        let sum =0;
+        let flag =false
+        let flag2 = false
+        for (let i =0 ; i<num.length  ;i++){
+                flag=true;
+            for (let j =i+1 ; j<num.length ; j++){
+                if ( num[i] == num[j]) flag =false
+                if (num[i] == 0) flag2 = true  
+            }
+            if (flag) sum+= Number(num[i])
+        }
+       if (flag2 && sum==45) console.log("paragram number");
+       else{
+        console.log("not a paragram number");
+       }
+
+
+    </script>
+</body>
+</html>

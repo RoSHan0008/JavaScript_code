@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: #200122; 
+        background: -webkit-linear-gradient(to right, #200122, #6f0000);
+        background: linear-gradient(to right, #200122, #6f0000);
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        
+    }
+    #hearder{
+        background: -webkit-linear-gradient(to right, #200122, #6f0000);
+        padding: 10px;
+        border-radius: 23px;
+        border: 5px solid white;
+        display: flex;
+        
+    }
+    .img_container{
+        height: 300px;
+        width: 300px;
+        border-radius: 20px;
+        margin: 10px;
+    }
+    .container{
+        display: flex;
+        border-radius: 20px;
+        overflow-x: auto;
+        border-radius: 25px;
+        
+    }
+    .img{
+        height: 300px;
+        width: 300px;
+        border-radius: 20px;
+    }
+    #action{
+        margin: 10px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    h3{
+        margin: 10px;
+        color: aliceblue;
+        Font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    h1{
+        margin: 5px;
+        color:  #ff0505;
+        font-size: 50px;
+    }
+    span{
+        color: aliceblue;
+        font-size: 70px;
+        
+    }
+
+     ::-webkit-scrollbar{
+      /* background-color: white;
+      border-radius: 25px;
+      border: 2px solid black;
+      margin-block: 2px;
+      width: 2px; */
+      display: none;
+
+    }
+    ::-webkit-scrollbar-thumb{
+        background-image: linear-gradient( 106.9deg,  rgba(148,14,60,1) 60.9%, rgba(3,22,27,1) 122.3% );
+        border-radius: 25px;
+        border: 1px solid white;
+        width: 2px;
+    }
+::-webkit-scrollbar-thumb:hover{
+        background-image: linear-gradient( 178.9deg,  rgba(176,57,105,1) 5.1%, rgba(229,113,159,1) 109.3% );
+    } 
+
+    .container_crime{
+        display: flex;
+        overflow-x: auto;
+ 
+        border-radius: 25px;
+    }
+    .container_drama{
+        display: flex;
+        overflow-x: auto;
+        border-radius: 25px;
+    }
+    .container_Biography{
+        display: flex;
+        overflow-x: auto;
+        border-radius: 25px;
+    }
+    .container_History{
+        display: flex;
+        overflow-x: auto;
+        border-radius: 25px;
+       
+    }
+    .container_Animation{
+        display: flex;
+        overflow-x: auto;
+        border-radius: 25px;
+        overflow: hidden;
+
+    }
+    form{
+        display: flex;
+        margin: 10px;
+        
+    }
+    .search{
+        margin: 10px;
+        padding: 20px;
+        border-radius: 60px;
+        width: 300px;
+        background-color: rgba(240, 248, 255, 0.247);
+        border: 0px solid;
+        color: aliceblue;
+        
+    }
+    
+    button{
+        padding: 10px;
+        border-radius: 12px;
+        margin: 10px;
+        color: aliceblue;
+        background: #200122;
+        border: 2px solid white;
+    }
+    .search:hover{
+        border:2px solid white ;
+    }
+    button:hover{
+        background-color: aliceblue;
+        color: #6f0000;
+    }
+</style>
+<body>
+    <div id="hearder">
+        <div id="logo">
+            <h1>MO<span>V</span>IE</h1>
+        </div>
+        <DIV>
+            <form action="">
+                <input type="text" placeholder="Search" class="search">
+                <button>SEARCH</button>
+            </form>
+        </DIV>
+    </div>
+    <div>
+        <div id="action" >
+            <h3>ACTION</h3>
+            <div class="container">
+        
+            </div>
+        </div>
+        <div id="crime" >
+            <h3>CRIME</h3>
+            <div class="container_crime">
+                
+            </div>
+        </div>
+        <div id="drama" >
+            <h3>DRAMA</h3>
+            <div class="container_drama">
+                
+            </div>
+        </div>
+        <div id="drama" >
+            <h3>BILOGRAPHY</h3>
+            <div class="container_Biography">
+                
+            </div>
+        </div>
+        <div id="drama" >
+            <h3>HISTORY</h3>
+            <div class="container_History">
+                
+            </div>
+        </div>
+        <div id="drama" >
+            <h3>ANIMATION</h3>
+            <div class="container_Animation">
+                
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        let container=document.querySelector('.container')
+        let container_crime=document.querySelector('.container_crime')
+        let container_drama=document.querySelector('.container_drama')
+        let container_Biography=document.querySelector('.container_Biography')
+        let container_History=document.querySelector('.container_History')
+        let container_Animation=document.querySelector('.container_Animation')       
+        
+
+     fetch("https://wookie.codesubmit.io/movies",{
+            method:"get",
+            headers : {
+                "Authorization" : "Bearer Wookie2019"
+            }
+        }).then(res=>res.json()).then(data=>{
+           for (let i = 0; i < data.movies.length; i++) {
+            for (let j =0 ; j < data.movies[i].genres.length; j++){
+                if("Action"==data.movies[i].genres[j]){
+                    action(data.movies[i].backdrop)
+                }
+                if("Crime"==data.movies[i].genres[j]){
+                    crime(data.movies[i].backdrop)
+                }
+                if("Drama"==data.movies[i].genres[j]){
+                    drama(data.movies[i].backdrop)
+                }
+                if("Biography"==data.movies[i].genres[j]){
+                    Biography(data.movies[i].backdrop)
+                }
+                if("History"==data.movies[i].genres[j]){
+                    History(data.movies[i].backdrop)
+                }
+                if("Animation"==data.movies[i].genres[j]){
+                    Animation(data.movies[i].backdrop)
+                }
+            }
+           }
+        }).catch(err=>console.log(err));
+
+        
+        function action(url){
+            let img_container= document.createElement('div');
+            img_container.classList.add('img_container');
+            container.appendChild(img_container);
+            img_tag=document.createElement('img')
+            img_tag.classList.add('img')
+            img_tag.src=url
+            img_container.appendChild(img_tag)
+        }
+         function crime(url){
+             let img_container_crime= document.createElement('div');
+             img_container_crime.classList.add('img_container');
+             container_crime.appendChild(img_container_crime);
+             img_tag=document.createElement('img')
+             img_tag.classList.add('img')
+             img_tag.src=url
+            img_container_crime.appendChild(img_tag)
+        }
+        function drama(url){
+             let img_container_drama= document.createElement('div');
+             img_container_drama.classList.add('img_container');
+             container_drama.appendChild(img_container_drama);
+             img_tag=document.createElement('img')
+             img_tag.classList.add('img')
+             img_tag.src=url
+            img_container_drama.appendChild(img_tag)
+        }
+        function Biography(url){
+             let img_container_Biography= document.createElement('div');
+             img_container_Biography.classList.add('img_container');
+             container_Biography.appendChild(img_container_Biography);
+             img_tag=document.createElement('img')
+             img_tag.classList.add('img')
+             img_tag.src=url
+            img_container_Biography.appendChild(img_tag)
+        }
+        function History(url){
+             let img_container_History= document.createElement('div');
+             img_container_History.classList.add('img_container');
+             container_History.appendChild(img_container_History);
+             img_tag=document.createElement('img')
+             img_tag.classList.add('img')
+             img_tag.src=url
+            img_container_History.appendChild(img_tag)
+        }
+        function Animation(url){
+             let img_container_Animation= document.createElement('div');
+             img_container_Animation.classList.add('img_container');
+             container_Animation.appendChild(img_container_Animation);
+             img_tag=document.createElement('img')
+             img_tag.classList.add('img')
+             img_tag.src=url
+            img_container_Animation.appendChild(img_tag)
+        }
+
+
+    </script>
+</body>
+</html>

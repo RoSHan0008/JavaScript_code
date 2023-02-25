@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = prompt("enter number")
+        result = "";
+        for (let index = 0 ; index < str.length ;index++){
+            let count =0 ;
+            while(str [index] == str [index+1]){
+                count++
+                index++
+            }
+            result += str[index] + ++count 
+
+        }
+        console.log(result)
+        
+        str = "practice makes man perfect.";
+        emptystr=""
+        result=""
+        for (let index=0; index< str.length ; index++){
+            if (str[index] === " " || str[index]==="."){
+                result = emptystr + " " + result;
+                emptystr="";
+            }
+            else{
+                emptystr +=  str[index]
+            }
+        }
+        console.log(result)
+
+
+        str = "practice makes man perfect.";
+        substr = "perfect"
+        flag=false
+        for (let index=0 ; index < str.length ; index++){
+            flag= false
+            let i =0 
+           if (str[index]=== substr[i]){
+                while(i<substr.length-1){
+                    if (str[index++]=== substr[i++])flag = true
+                    else{
+                        flag = false
+                        continue
+                    }
+                 }
+           }
+           if (flag) console.log ("given substring is persent in string")
+        }
+        
+        
+
+    </script>
+</body>
+</html>

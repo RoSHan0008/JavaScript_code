@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>hi hello good afternoon</H1>
+    <H1>how are you</H1>
+    <H1>i am fine</H1>
+    <button id="btn">change</button>
+    <script>
+        let tags=document.getElementsByTagName("H1")
+        let btn = document.getElementById("btn")
+        btn.addEventListener("click",()=>{
+            tags[0].style.color="blue"
+            btn.style.background="red"
+        },false)
+    </script>
+</body>
+</html>

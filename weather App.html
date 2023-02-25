@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    nav{
+        background-color: rgb(9, 9, 58);
+        color: rgb(228, 217, 217);
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+    }
+    div{
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    input{
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 10px;
+        margin: 10px;
+    }
+    button{
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <nav>
+        Weather App
+    </nav>
+    <div>
+        <input type="text" placeholder="ENTER CITY NAME" >
+         <button id="btm">SEARCH</button>
+    </div>
+    <div id="output"></div>
+    <script>
+        let input= document.querySelector("input")
+        let btm =  document.getElementById("btm")
+        btm.addEventListener("click" ,()=>{
+            let cityname = input.value
+            datafetch(cityname)
+        })
+        async function datafetch(cityname){
+        let Api=`http://api.openweathermap.org/data/2.5/weather?q=${cityname}&&mode=json&units=metric&APPID=7d7101e89ab9bc417d763dd06358cc24`
+        fetch(Api).then(a=>{return a.json()}).then(a=>
+            {
+                let result =`<h1>${a.name}</h1>
+                    <h2>city lattitude is :- ${a.coord.lat}city langitude is :- ${a.coord.lon}</h2>`
+                    console.log(a);
+                let div=document.getElementById("output")    
+                div.innerHTML=result;
+            }
+        ).catch(err=>console.log(err))
+
+        }
+    </script>
+</body>
+</html>

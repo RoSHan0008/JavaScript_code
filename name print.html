@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        name = prompt("Enter Name")
+        length =+ prompt("Enter length")
+        symbol = prompt ("select any one of this ?!@#$%^&*")
+        if (length%2===0)length=length+1;
+        
+
+
+        function a(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col<num && col > 1 || col===num && row>1||col===1  && row >1||row === center )? sym: " ";
+                    }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function b(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col<num ||col===num && row >1 && row<num  && row != center ||col===1 ||row === center && col<num||row===num && col<num) ? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function c(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col>1||col===1 && row>1 && row<num ||row === num && col>1)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function d(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col<num||col===1  ||row === num && col<num|| col == num && row >1 && row< num)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function e(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col>1||col===1  && row != center && row>1 && row <num  ||row === num && col<num  && col >1 || row==center && col>1 && col<num)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function f(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col>1||col===1  && row != center && row>1 && row <num || row==center && col>1 && col<num)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function g(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col>1||col===1 && row>1 && row <num  ||row === num && col<num  && col >1 || col ==num && row>center || row ==center && col > center)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function h(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (col===1  && row != center  || row==center && col>1 && col<num || col==num && row != center)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function i(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col!= center || row ==num && col != center || col == center && row > 1 && row< num)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function j(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 || row ==num && col != center  && col < center|| col == center && row > 1 && row< num || col == 1 && row >center)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function k(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (col == 1  || row==col && row >center|| col == (num-row)+1 && row <=center|| row == center && col<=center)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function l(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (col == 1  && row<num || row==num && col > 1)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function m(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (col == 1  || row==col && row <center|| col == (num-row)+1 && row <=center||col == num)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function n(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (col == 1  || row==col || col == num)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function o(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col<num && col>1 ||col===num && row >1 && row<num ||col===1 && row<num && row>1 ||row===num && col<num && col >1) ? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function p(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col<num ||col===num && row >1 && row<center && row != center ||col===1 ||row === center && col<num) ? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function q(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col<num && col>1 ||col===num && row >1 && row<num ||col===1 && row<num && row>1 ||row===num && col<num && col >1 || col===row &&  row>center) ? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function r(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col<num ||col===num && row >1 && row<center && row != center ||col===1 ||row === center && col<num  || col===row &&  row>center) ? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function s(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1 && col>1||col===num && row>center  && row != center ||col===1 && row>1 && row<center && row!=center || row===num && col<num  || row==center && row>1 && row<num) ? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function t(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1|| col == center && row > 1 && row< num)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function u(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (col===num && row >1 && row<num ||col===1 && row<num && row>1 ||row===num && col<num && col >1) ? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function v(num,sym){
+            let patterns = ""
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (col==1 && row<center || col==num && row<center ||row == num && col == center ||col == row -center+1|| col == num -(row-center)) ? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function w(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (col == 1  || row==col && row >center|| col == (num-row)+1 && row >=center||col == num)? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function x(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row==col || col == (num-row)+1 )? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function y(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row==col  && row< center|| col == (num-row)+1 )? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        function z(num,sym){
+            let patterns = "";
+            let center = Math.trunc((num+1)/2)
+            for (let row =1; row <= num; row++){
+                for (let col=1 ; col<=num;col++ ){
+                    patterns+= (row===1||row==num|| col == (num-row)+1 )? sym: " ";
+                }
+                patterns += "\n"
+            }
+            return patterns;
+        }
+        let  result =" ";
+       for (let ch=0;ch< name.length ;ch++){
+       
+        switch (name[ch]){
+            case "a": result = a(length,symbol);
+                        break;
+            case "b": result = b(length,symbol);
+                        break;
+            case "c": result = c(length,symbol);
+                        break;
+            case "d": result = d(length,symbol);
+                        break;
+            case "e": result = e(length,symbol);
+                        break;
+            case "f": result = f(length,symbol);
+                        break;
+             case "g": result = g(length,symbol);
+                        break;
+             case "h": result = h(length,symbol);
+                        break;
+             case "i": result = i(length,symbol);
+                        break;
+             case "j": result = j(length,symbol);
+                        break;
+             case "k": result = k(length,symbol);
+                        break;
+             case "l": result = l(length,symbol);
+                        break;
+             case "m": result = m(length,symbol);
+                        break;
+             case "n": result = n(length,symbol);
+                        break;
+             case "o": result = o(length,symbol);
+                        break;
+             case "p": result = p(length,symbol);
+                        break;
+             case "q": result = q(length,symbol);
+                        break;
+             case "r": result = r(length,symbol);
+                        break;
+             case "s": result = s(length,symbol);
+                        break;
+             case "t": result = t(length,symbol);
+                        break;
+             case "u": result = u(length,symbol);
+                        break;
+             case "v": result = v(length,symbol);
+                        break;
+             case "w": result = w(length,symbol);
+                        break;
+             case "x": result = x(length,symbol);
+                        break;
+             case "y": result = y(length,symbol);
+                        break;
+             case "z": result = z(length,symbol);
+                        break;
+            case " ": result = console.log("\n \n") ;
+                        break;
+            default:
+                console.log("Enter Alphabet");
+            
+        }
+        console.log(result);
+        
+    }
+    // console.log(result);
+    </script>
+</body>
+</html>

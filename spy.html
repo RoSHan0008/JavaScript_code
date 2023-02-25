@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num=+ prompt("Enter number ")
+        let result=0;
+        let result1=1;
+        let temp=0;
+        while(num>0){
+            temp=0;
+            temp= num%10;
+            result += temp;
+            result1 *= temp;
+            num = Math.trunc(num/10);
+        } 
+        
+        if (result==result1)console.log("Spy number ")
+        else{
+            console.log("Not a spy number")
+        }
+    </script>
+</body>
+</html>

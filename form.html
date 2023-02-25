@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        .navbar {
+            background-color: black;
+            color: white;
+            padding: 15px 40px;
+        }
+        .btn-container {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .btn-container>button {
+            background: none;
+            border: 1px solid black;
+            font-size: 25px;
+            width: 200px;
+            padding: 5px 20px;
+            border-radius: 5px;
+            transition: all .1s linear;
+        }
+        .btn-container>button:hover {
+            color: white;
+            background-color: black;
+        }
+        .container {
+            width: 600px;
+            border : 1px solid black;
+            border-radius: 5px;
+            padding: 30px;
+            display: flex;
+            margin:auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:30px;
+        }
+        .container>.header {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .container>.header>button {
+            background: none;
+            border:none;
+            font-size: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h2>Js Rider's</h2>
+    </div>
+    <div class="btn-container">
+        <button id="toggle-btn">SHOW</button>
+    </div>
+    <div class="container hidden">
+        <div class="header">
+            <h3>Welocome to javaScript</h3>
+            <button class="close-btn"><i class="fa fa-xmark"></i></button>
+        </div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, accusantium numquam nesciunt obcaecati eaque beatae fugit vel voluptates temporibus maxime nisi fuga magni laborum mollitia ipsum doloremque, tempore animi rerum?
+        </p>
+    </div>
+    <script>
+        let btn = document.getElementById('toggle-btn');
+        let container = document.querySelector('.container');
+        btn.addEventListener("click",(event) => {
+            if(container.classList.contains("hidden")) {
+                container.classList.remove('hidden');
+                btn.textContent = "HIDE";
+            } else { 
+                container.classList.add('hidden');
+                btn.innerText = "SHOW";
+            }
+        })
+        document.querySelector('.close-btn').addEventListener('click',() => {
+            container.classList.add('hidden');
+            btn.innerText = "SHOW";
+        });
+        document.addEventListener('keydown',(event)=>{
+          if (event.key=="enter"){
+            container.classList.add('hidden');
+                btn.innerText = "SHOW";
+          }
+        })
+    </script>
+</body>
+</html>

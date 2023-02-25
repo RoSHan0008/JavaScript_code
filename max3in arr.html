@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arr=[10,7,4,20,30,34,24,6,45,3,5]
+        // max=arr[0]
+        // smax=arr[1]
+        // tmax=arr[2]
+        // for (let i=3 ; i<arr.length ;i++){
+        //     if (arr[i]>max){
+        //         tmax=smax
+        //         smax=max
+        //         max=arr[i]
+        //         continue
+        //     }
+
+        //     if( arr[i] > tmax)
+        //     {
+        //         if( arr[i] > smax)
+        //     {
+        //         tmax=smax;
+        //         smax=arr[i]
+        //         continue
+        //     }
+        //     tmax=arr[i]
+        //     }
+        // }
+
+        // console.log(max)
+        // console.log(smax)
+        // console.log(tmax)
+
+
+
+        function print ( num )
+        {
+            console.log(num)
+
+            if( num > 2 ) return;
+            print ( num+1)
+            print ( num+1)
+
+            console.log(num)
+        }
+
+        print(1)
+
+
+    </script>
+</body>
+</html>

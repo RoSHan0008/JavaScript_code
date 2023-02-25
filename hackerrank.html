@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    arr=[1,2,3,4,5]
+    var sum= 0;
+    max=0;
+    min=0;
+    let empty =" ";
+    let length = arr.length ;
+    for (let i=0; i< length  ;i++){
+        sum=0;
+        for (let j=0 ; j<length;j++){
+
+
+            if (j != i){
+                sum += arr[j]
+
+            }
+            
+        }
+        if(sum>max)
+        {
+            max=sum;
+        }
+
+        if(sum<min)
+        {
+            min=sum;
+        }
+
+        //    empty += sum + " "
+  
+    }
+    console.log(max)
+    console.log(min)
+
+    </script>
+</body>
+</html>

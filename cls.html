@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num =+ prompt("enter number")
+        let temp = 0;
+        let rev=0;
+        while(num>0){
+            
+            temp = num % 10 ;
+            rev = rev*10 + temp ;
+            num = Math.trunc(num /10)
+        }
+        console.log (rev)
+        temp=0
+        sum =0 ;
+        rev1=0
+        let i=0; 
+        while(rev>0){
+            temp = rev % 10;
+            rev1= rev1* 10 + temp;
+            rev = Math.trunc(rev/10)
+        }
+        temp=0;
+        while(i<3){
+            
+            temp = rev1 %10
+            sum += temp 
+            rev1 = Math.trunc(rev1/10)
+            i++
+        }
+
+        console.log (sum)
+    </script>
+</body>
+</html>

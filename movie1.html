@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     #hearder{
+        background: -webkit-linear-gradient(to right, #200122, #6f0000);
+        padding: 10px;
+        border-radius: 23px;
+        border: 5px solid white;
+        display: flex;
+     }
+     *{
+        margin: 0;
+        padding: 0;    
+    }
+    body{
+        background: #200122; 
+        background: -webkit-linear-gradient(to right, #200122, #6f0000);
+        background: linear-gradient(to right, #200122, #6f0000);
+    }
+    span{
+        color: aliceblue;
+        font-size: 70px;
+    }
+    h1{
+        margin: 5px;
+        color:  #ff0505;
+        font-size: 50px;
+    }
+    form{
+        display: flex;
+        margin: 10px;
+    }
+    .search{
+        margin: 10px;
+        padding: 20px;
+        border-radius: 60px;
+        width: 300px;
+        background-color: rgba(240, 248, 255, 0.247);
+        border: 0px solid;
+        color: aliceblue;
+    }
+    #action,#crime,#drama,#biography,#history{
+    display: flex;
+    overflow-x:scroll;
+    
+    color: aliceblue;
+   
+    
+
+  }
+    button{
+        padding: 10px;
+        border-radius: 12px;
+        margin: 10px;
+        color: aliceblue;
+        background: #200122;
+        border: 2px solid white;
+    }
+    .search:hover{
+        border:2px solid white ;
+    }
+    button:hover{
+        background-color: aliceblue;
+        color: #6f0000;
+    }
+</style>
+<body>
+    <div id="hearder">
+        <div id="logo">
+            <h1>MO<span>V</span>IE</h1>
+        </div>
+        <DIV>
+            <form action="">
+                <input type="text" placeholder="Search" class="search">
+                <button>SEARCH</button>
+            </form>
+        </DIV>
+    </div>
+    <div>
+    <div id="cantainer">
+       <h2>ACTION</h1>
+   <div id="action"></div>
+
+   <h2>DRAMA</h2>
+  <div id="drama"></div>
+
+  <h2>CRIME</h2>
+   <div id="crime"></div>
+
+  <h2>BIOGRAPHY </h2>
+   <div id="biography"></div>
+
+   <h2>HISTORY</h2>
+   <div id="history"></div>
+    </div>
+</body>
+<script>
+   let URL = "https://wookie.codesubmit.io/movies";
+    let moviesData;
+    fetch(URL, { method: "get", headers: { "Authorization": "Bearer Wookie2019" } }).then(
+      res => {
+        return res.json();
+      }
+    ).then(
+      data => {
+        moviesData = data.movies;
+        // console.log(moviesData);
+        putActionMoviesData(moviesData)
+      }
+    )
+      .catch(err => console.log(err));
+
+    function putActionMoviesData(moviesData) {
+      // console.log(moviesData);
+      let actionDiv = document.getElementById("action")
+      let crimeDiv = document.getElementById("crime")
+      let dramaDiv = document.getElementById("drama")
+      let biographyDiv = document.getElementById("biography")
+      let historyDiv = document.getElementById("history")
+
+
+
+      for (let i = 0; i < moviesData.length; i++){
+        if (moviesData[i].genres.includes('Action')) {
+          actionDiv.appendChild(createMovieDiv(moviesData[i].backdrop, moviesData[i].title))
+        }
+
+        if (moviesData[i].genres.includes('Crime')) {
+          crimeDiv.appendChild(createMovieDiv(moviesData[i].backdrop, moviesData[i].title))
+        }
+
+        if (moviesData[i].genres.includes('Drama')) {
+          dramaDiv.appendChild(createMovieDiv(moviesData[i].backdrop, moviesData[i].title))
+        }
+
+        if (moviesData[i].genres.includes('History')) {
+          historyDiv.appendChild(createMovieDiv(moviesData[i].backdrop, moviesData[i].title))
+        }
+
+        if (moviesData[i].genres.includes('Biography')) {
+          biographyDiv.appendChild(createMovieDiv(moviesData[i].backdrop, moviesData[i].title))
+        }
+      }
+    }
+
+    function createMovieDiv(image, name) {
+ 
+      movie_element = document.createElement("div");
+
+      
+      movie_name = document.createElement("h4");
+      movie_name.innerHTML = name;
+
+      
+      movie_image = document.createElement("img");
+      movie_image.src = image;
+      movie_image.setAttribute("style", "width: 300px");
+
+      movie_element.appendChild(movie_name);
+      movie_element.appendChild(movie_image);
+
+      return movie_element;
+    }
+            
+
+
+
+
+</script>
+</html>

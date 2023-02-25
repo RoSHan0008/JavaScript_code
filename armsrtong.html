@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num=+ prompt("enter number")
+        let sum=0;
+        let temp=num;
+        while(num>0){
+            num= num % 10
+            count++;
+        }
+        while(temp>0){
+            let rem = temp%10;
+            sum += rem ** count;
+            temp=Math.trunc(temp/10);
+        }
+        if(sum==num)console.log("armsrtrong number")
+        else{
+            console.log ("not a armstrong number")
+        }
+    </script>
+</body>
+</html>

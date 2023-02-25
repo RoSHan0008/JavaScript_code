@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" defer="true"></script>
+</head>
+<style>
+#form{
+  width: 60%;
+  margin: 10px auto;
+  border-radius: 20px;
+  padding: 10px;
+}
+</style>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark px-5">
+        <a href="" class="navbar-brand">Jspider</a>
+        <div class="collapose navbar-collapose">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Services</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <section >
+             
+            <form class="row g-3 needs-validation my-2  p-2 bg-dark text-light " id="form" novalidate>
+                <div class="col-md-5">
+                  <label for="validationCustom01" class="form-label">Name <span id="StudentNameError"></span></label>
+                  <input type="text" class="form-control"  value="" required id="name-input">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-5">
+                  <label for="validationCustomUsername" class="form-label">Gmail<span id="StudentNameGmail"></span></label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="text" class="form-control"  aria-describedby="inputGroupPrepend" id="gmail-input" required >
+                    <div class="invalid-feedback">
+                      Please choose a username.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                    <label for="validationCustom04" class="form-label">Gender<span id="StudentNameGender"></span></label>
+                    <select id="gender-input" class="form-select" required>
+                      <option selected disabled value="">Choose...</option>
+                      <option>male</option>
+                      <option>female</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid state.
+                    </div>
+                  </div>
+                <div class="col-md-5">
+                  <label for="validationCustom04" class="form-label">Course</label>
+                  <select class="form-select" id="course-input" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option>MERN</option>
+                    <option>JAVA</option>
+                    <option>PYTHON</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid state.
+                  </div>
+                </div>
+                <div class="col-md-5">
+                    <label for="validationCustom01" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="number-input" value="" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label for="validationCustom04" class="form-label">Rating</label>
+                    <select id="rating-input" class="form-select"  required>
+                      <option selected disabled value="">Choose...</option>
+                      <option>P1*</option>
+                      <option>P1</option>
+                      <option>P2</option>
+                      <option>P3</option>
+
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid state.
+                    </div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      I am not a robot
+                    </label>
+                  </div>
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary" type="button" id="submit-btn">Submit</button>
+                  </div>
+               
+    </section>
+
+
+    <section>
+        <div class="container mx-5 my-3 row border py-2 border-secondary border-2 rounded">
+            <div class="col-6">
+                <div class="row">
+                <div class="col-10"><input id="inputTag" type="text" placeholder="Search here" class="form-control"></div>
+                <div class="col-2">
+                    <button id="search" class="btn btn-md btn-primary">Search</button>
+                </div>
+                </div>
+            </div>
+            <div class="col-6 text-end">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Filter
+                    </button>
+                    <ul class="dropdown-menu p-3" id="btn-collection">
+                      <li class="my-2">
+                        <button class="btn btn-dark px-2">P1*</button>
+                        <button class="btn btn-dark px-2">P1</button>
+                        <button class="btn btn-dark px-2">P2</button>
+                        <button class="btn btn-dark px-2">P3</button>
+                      </li>
+                      <li class="my-2">
+                        <button id="malebtn" class="btn btn-dark px-2">Male</button>
+                        <button class="btn btn-dark px-2">Female</button>
+                      </li>
+                      <li class="my-2">
+                        <button class="btn btn-dark px-2">JAVA</button>
+                        <button class="btn btn-dark px-2">PYTHON</button>
+                        <button class="btn btn-dark px-2">MERN</button>
+                      </li>
+                      <li>
+                        <button class="btn btn-dark px-2">Remove filter</button>
+                      </li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="col-11 mx-auto ">
+        <table class="table my-4 table-info table-hover table-dark rounded "  >
+            <thead>
+                <tr>
+                    <th>SLNO</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Gmail</th>
+                    <th>Phone</th>
+                    <th>Course</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    </section>
+    <script>
+        let arr=[
+            {
+                SNo:01,
+                Name:"Arsh",
+                Gender:"Male",
+                Email:"arsh@gmail.com",
+                Number:9047552424,
+                Course:"MERN",
+                Rating:"p1"
+            },
+            {
+                SNo:02,
+                Name:"Rajni",
+                Gender:"Female",
+                Email:"rajni@gmail.com",
+                Number:9874622862,
+                Course:"JAVA",
+                Rating:"p1*"
+            },
+            {
+                SNo:03,
+                Name:"Sanjana",
+                Gender:"Female",
+                Email:"sanjana@gmail.com",
+                Number:9827646381,
+                Course:"MERN",
+                Rating:"p1"
+            },
+            {
+                SNo:04,
+                Name:"Sagar",
+                Gender:"Male",
+                Email:"sagar@gmail.com",
+                Number:8967482518,
+                Course:"MERN",
+                Rating:"p1"
+            },
+            {
+                SNo:05,
+                Name:"Akilesh",
+                Gender:"Male",
+                Email:"akilesh@gmail.com",
+                Number:7287619369,
+                Course:"PYTHON",
+                Rating:"p1"
+            },
+            {
+                SNo:06,
+                Name:"Roshan",
+                Gender:"Male",
+                Email:"roshan@gmail.com",
+                Number:7563917660,
+                Course:"PYTHON",
+                Rating:"p1"
+            },
+
+            {
+                SNo:07,
+                Name:"Sumit",
+                Gender:"Male",
+                Email:"sumit@gmail.com",
+                Number:9078976752,
+                Course:"MERN",
+                Rating:"p1"
+            },
+            {
+                SNo:08,
+                Name:"Manoj",
+                Gender:"Male",
+                Email:"Manoj@gmail.com",
+                Number:8732657564,
+                Course:"JAVA",
+                Rating:"p1"
+            },
+            {
+                SNo:09,
+                Name:"GopalK",
+                Gender:"Male",
+                Email:"qwerty@gmail.com",
+                Number:9876543210,
+                Course:"MERN",
+                Rating:"p1"
+            },
+            {
+                SNo:10,
+                Name:"asdfgh",
+                Gender:"Male",
+                Email:"asdfgh@gmail.com",
+                Number:9988776655,
+                Course:"JAVA",
+                Rating:"p2"
+            },
+            {
+                SNo:11,
+                Name:"zxcvbn",
+                Gender:"Male",
+                Email:"azxcvb@gmail.com",
+                Number:9988446633,
+                Course:"MERN",
+                Rating:"p3"
+            },
+            {
+                SNo:12,
+                Name:"poiuy",
+                Gender:"Female",
+                Email:"poiuy@gmail.com",
+                Number:9102834567,
+                Course:"PYTHON",
+                Rating:"p2"
+            },
+            {
+                SNo:13,
+                Name:"lkjhg",
+                Gender:"Male",
+                Email:"lkjhg@gmail.com",
+                Number:9078563412,
+                Course:"JAVA",
+                Rating:"p3"
+            },
+            {
+                SNo:14,
+                Name:"tgbnhy",
+                Gender:"Female",
+                Email:"tgbnhy@gmail.com",
+                Number:9865784410,
+                Course:"JAVA",
+                Rating:"p2"
+            },
+            {
+                SNo:15,
+                Name:"qazxsw",
+                Gender:"Female",
+                Email:"qazxsw@gmail.com",
+                Number:7658932144,
+                Course:"JAVA",
+                Rating:"p3"
+            }
+        ]
+        let tbody = document.querySelector('tbody');
+        
+        
+        function createRow (students) {
+            tbody.innerHTML = "";
+            for(let i = 0 ; i < arr.length ; i++) {
+                const tr = document.createElement("tr");
+                for(const key in students[i]) {
+                    const td = document.createElement("td");
+                    td.innerText = students[i][key];
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr)
+            }
+        }
+        createRow(arr);
+        // let male = document.querySelector("#malebtn")
+        // male.addEventListener('click', () => {
+        //     let newArr = arr.filter((item) => item.Gender === "Male");
+        //     createRow(newArr);
+        // })
+        let btnContainer = document.getElementById('btn-collection');
+        btnContainer.addEventListener('click',({ target }) => {
+            if(! target.classList.contains('btn')) return ;
+            let text = target.innerText
+            let newArr =(text === "Remove filter") ? arr : arr.filter((item) => item.Rating === text.toLowerCase() || item.Gender === text || item.Course === text )
+            createRow(newArr);
+        })
+        let inputtag = document.getElementById('inputTag');
+
+        document.getElementById('search')
+
+        .addEventListener("click",() => {
+            let text = inputtag.value;
+            let newArr = arr.filter((item) => item.Name.toLowerCase().startsWith(text.toLowerCase()) || item.Email.startsWith(text) || String(item.Number).startsWith(text))
+            createRow(newArr);
+        })
+
+
+        let name_input = document.getElementById('name-input');
+        let gmail_input = document.getElementById('gmail-input');
+        let gender_input = document.getElementById('gender-input');
+        let course_input = document.getElementById('course-input');
+        let number_input = document.getElementById('number-input');
+        let rating_input = document.getElementById('rating-input');
+        count=15
+        document.getElementById("submit-btn").addEventListener("click",()=>{
+            let name= name_input.value;
+            let gmail = gmail_input.value;
+            let gender= gender_input.value
+            let course = course_input.value
+            let number = number_input.value
+            let rating =  rating_input.value
+            
+             let obj = {
+                SNo:++count,
+                Name:name,
+                Gender:gender,
+                Email:gmail,
+                Number:number,
+                Course:course,
+                Rating:rating
+            }
+               arr.push(obj)
+            createRow(arr)
+        })
+    
+    </script>
+</body>
+</html>

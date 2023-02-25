@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+    .left-eyes{
+        height: 25px;
+        width: 25px;
+        border: 1px solid black;
+        background-color: rgb(53, 29, 2);
+        border-radius: 50%;
+        position: relative;
+        left: 60px;
+        top: 50px;
+    }
+    .rigth-eyes{
+        height: 25px;
+        width: 25px;
+        border: 1px solid black;
+        background-color: rgb(53, 29, 2);
+        border-radius: 50%;
+        position: relative;
+        left: 120px;
+        top: 25px;
+    }
+    .nose{
+        position: relative;
+        border-top: 40px solid black ;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        left:-20px;
+        top: 60px;
+        transform: rotate(63deg)
+    }
+    .lip{
+        position: relative;
+        width: 80px;
+        height: 80px;
+        border-bottom:10px solid rgb(56, 8, 8) ;
+        top: 90px;
+        border-radius: 40%;
+    }
+  .body{
+    height: 800px;
+    width: 800px;
+    margin: 10px auto;
+    background-image: radial-gradient( circle 610px at 5.2% 51.6%,  rgba(5,8,114,1) 0%, rgba(7,3,53,1) 97.5% );
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+  }
+  .face{
+        display: flex;
+        background-image: linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%);
+        height: 200px;
+        width: 200px;
+        border: 2px solid black;
+        border-radius: 50%;
+    }
+    .transition{
+        position: relative;
+        
+    }
+</style>
+<body>
+    <div class="body">
+        <div class="face transition">
+            <div class="eyes">
+                <div class="left-eyes"></div>
+                <div class="rigth-eyes"></div>
+            </div>
+            <div class="nose"></div>
+            <div class="lip"></div>
+        </div>
+    </div>
+</body>
+<script>
+    let transition = document.querySelector('.transition')
+    let pxl=0;
+    addEventListener('keydown',(event)=>{
+        console.log(event);
+       if(event.key=="ArrowRight"){
+        pxl++
+        transition.style.left=pxl+"px"
+    }
+    if(event.key=="ArrowLeft"){
+        pxl++
+        transition.style.right=pxl+"px" 
+    }
+    if(event.key=="ArrowUp"){
+        pxl++
+        transition.style.bottom=pxl+"px"
+    }
+    if(event.key=="ArrowDown"){
+        pxl++
+        transition.style.top=pxl+"px"
+    }
+    })
+</script>
+</html>

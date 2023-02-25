@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+  box-sizing: border-box;
+  margin: 0;
+  font-family:
+  'Silkscreen', cursive;}
+
+  body{
+    background-color: darkcyan;
+    color:lightcyan;
+  }
+
+  .watch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: black;
+    width:400px;
+    height: 400px;
+   border-radius: 100%;
+   margin: 40px auto;
+  }
+  #hms{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 34px;
+  }
+  .hms{
+    width: fit-content;
+    height: fit-content;
+    padding:4px 2px;
+    border: 2px solid gray;
+    border-radius: 4px; 
+  }
+  .time{
+    font-size: 50px;
+    font-weight: 300;
+  }
+  .controls{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+  }
+  .controls button{
+    font-size: 24px;
+     cursor: pointer;
+     color: azure;
+     background-color: rgb(17, 148, 69);
+      margin:auto;
+      padding: 12px 24px;
+      border-radius: 8px;
+       
+  }
+   button:hover{
+    opacity:0.7;
+   }
+   button:active{
+     background-color: black; 
+   }
+</style>
+<body>
+    <div class="watch">
+        <div id="hms">
+          <div class="hms">H</div>
+          <div class="hms">H</div>
+          <div class="hms">:</div>
+          <div class="hms">M</div>
+          <div class="hms">M</div>
+          <div class="hms">:</div>
+          <div class="hms">S</div>
+          <div class="hms">S</div>
+        </div>
+        <div class="time">
+          00:00:00
+        </div>
+    
+      </div>
+      <div class="controls">
+        <button id="start">START</button>
+        <button id="stop">STOP</button>
+        <button id="reset">RESET</button>
+      </div>
+      <script src="../StopWatch/StopWatch.js"></script>
+</body>
+<script>
+const timeElement = document.querySelector('.watch>.time');
+const startBtn = document.getElementById('start');
+const stopBtn = document.getElementById('stop');
+const resetBtn = document.getElementById('reset');
+
+let seconds = 0;
+let interval = null;
+
+//Event Listeners
+startBtn.addEventListener('click',start);
+stopBtn.addEventListener('click',stop);
+resetBtn.addEventListener('click',reset);
+
+function timer(){
+  seconds++;
+
+  //format our time
+  let hrs = Math.floor(seconds / 3600);
+  let mins = Math.floor((seconds - (hrs*3600))/ 60);
+  let secs = seconds % 60;
+
+  if(secs < 10)secs = '0' + secs;
+  if(mins < 10) mins = '0' + mins;
+  if(hrs < 10) hrs = '0' + hrs;
+
+  timeElement.innerText =`${hrs}:${mins}:${secs}`;
+
+}
+// timer();
+
+function start(){
+   if(interval){
+    return
+   }
+   interval = setInterval(timer,1000);
+}
+
+function stop(){
+  clearInterval(interval);
+  interval = null;
+}
+
+function reset(){
+stop();
+seconds = 0;
+  timeElement.innerText = '00:00:00';
+}
+document.addEventListener("keyup",({key})=>{
+  // console.log(event)
+  console.log(key)
+  if(key == "Enter")  stop()
+});
+</script>
+</html>
